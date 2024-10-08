@@ -4,6 +4,7 @@ import Button from "./Button";
 import FooterIcon1 from "./icons/FooterIcon1";
 import FooterIcon2 from "./icons/FooterIcon2";
 import CustomMailIcon from "./icons/CustomMailIcon";
+import { Link } from "react-router-dom";
 
 export default function Footer(){
     return(
@@ -52,7 +53,7 @@ export default function Footer(){
                         <CustomMailIcon />
                     </span>
                     <input type="search" placeholder="Your email address"/>
-                    <button type="submit" className="footer-input-email-btn">Get Early Access </button>
+                    <Link to="mailto:haulway@gmail.com" className="footer-input-email-btn xui-text-dc-none">Get Early Access </Link>
                 </div>
             </div>
         </footer>

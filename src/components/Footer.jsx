@@ -56,6 +56,7 @@ export default function Footer(){
                     <Link to="mailto:haulway@gmail.com" className="footer-input-email-btn xui-text-dc-none">Get Early Access </Link>
                 </div>
             </div>
+            <p className="xui-text-center xui-mt-4 xui-mb-1 xui-font-9 xui-text-dc-underline">Haulway is a registered trademark of Haulscape Technologies LTD UK-RC:15245660</p>
         </footer>
         </>
     );

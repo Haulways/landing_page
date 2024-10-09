@@ -27,7 +27,7 @@ const HeaderComponent = (props) => {
                 )}
             </div>
             <div xui-aos="fade-right" xui-aos-duration=".8" xui-aos-delay=".25"  className='xui-lg-col-6 xui-col-12'>
-                <img src={image} className='xui-w-fluid-100 xui-h-fluid-100' alt="" />
+                <img src={image} className='xui-img-600' alt="" />
             </div>
         </div>
     );

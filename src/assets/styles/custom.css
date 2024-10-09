@@ -148,12 +148,82 @@
     left: 0;
     z-index: 10;
 }
+.cta-tab-holder{
+    max-width: 700px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+.cta-tab-paragraph{
+    max-width: 350px;
+}
+.cta-tab-btn-holder{
+    flex-wrap: wrap;
+    display: flex;
+    align-items: center;
+    /* white-space: nowrap; */
+    max-width: 300px;
+    grid-gap: 1rem;
+    justify-content: center;
+}
+.cta-tab-btn{
+    padding: 0.5rem 2rem;
+    display: inline-block;
+    font-size: 85%;
+    border: none;
+    outline: none;
+    border-radius: .5rem;
+}
 .haulway-loader-logo-holder {
     animation-name: loaderScale;
     animation-iteration-count: infinite;
     animation-duration: 1s;
     animation-timing-function: linear;
     animation-direction: alternate;
+}
+#selectView {
+    position: fixed;
+    left: 0;
+    bottom: -100%;
+    transition: .4s;
+}
+#selectView.animate {
+    bottom: 0;
+}
+#selectView.animate.selected {
+    left: -100%;
+}
+#firewall {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    transition: .4s;
+}
+#firewall.animate {
+    right: 0;
+}
+#questions {
+    position: fixed;
+    left: 0;
+    bottom: -100%;
+    transition: .4s;
+}
+#questions.animate {
+    bottom: 0;
+}
+input {
+    border: 1.2px solid rgba(0, 0, 0, .2);
+    outline: none;
+}
+#letter {
+    position: fixed;
+    left: 0;
+    bottom: -200%;
+    height: 100vh !important;
+    transition: .4s;
+}
+#letter.animate {
+    bottom: 0;
 }
 
 @keyframes loaderScale {

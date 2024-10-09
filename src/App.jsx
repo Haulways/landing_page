@@ -7,7 +7,7 @@ import './assets/styles/custom.css'
 import Navbar from './components/Navbar';
 import Loader from "./components/Loader";
 const Home = lazy(() => import('./pages/Home'));
-const Explore = lazy(() => import('./pages/Explore'));
+const Explore = lazy(() => import('./pages/explore/Explore'));
 
 gsap.registerPlugin(ScrollTrigger);
 function App() {

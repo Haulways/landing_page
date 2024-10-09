@@ -9,7 +9,7 @@ const Navbar = () => {
     const onSubmitHandler = (event) => {
         event.preventDefault();
         formData.email = email.current.value;
-        window.open("mailto:Contact@begorah.co.uk?subject="+ "&body=");
+        window.open("mailto:haulway@gmail.com?subject="+ "&body=");
     }
     
     return (
@@ -30,9 +30,9 @@ const Navbar = () => {
                         <li>
                             <NavLink className={({ isActive }) => isActive ? 'xui-font-sz-150 nav-links xui-md-font-sz-200 xui-lg-font-sz-100 xui-font-w-700 xui-text-black' : 'xui-font-sz-150 nav-links xui-md-font-sz-200 xui-lg-font-sz-100 xui-text-black xui-opacity-7'} to={"explore"}>Explore</NavLink>
                         </li>
-                        <li>
+                        {/* <li>
                             <NavLink className={({ isActive }) => isActive ? 'xui-font-sz-150 nav-links xui-md-font-sz-200 xui-lg-font-sz-100 xui-font-w-700 xui-text-black' : 'xui-font-sz-150 nav-links xui-md-font-sz-200 xui-lg-font-sz-100 xui-text-black xui-opacity-7'} to={"features"}>Features</NavLink>
-                        </li>
+                        </li> */}
                      
                     </ul>
                 </div>

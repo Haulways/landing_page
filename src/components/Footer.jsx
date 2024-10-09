@@ -44,6 +44,14 @@ export default function Footer(){
                     </div>
 
                 </div>
+                <div className="xui-pl-1" style={{"width": "calc(100% - 70px)"}}>
+                    <p className="xui-font-sz-85 xui-opacity-8">Our Email</p>
+                    <h3 className="xui-font-sz-130 xui-mt-half xui-font-w-500">contact@haulway.co</h3>
+                </div>
+                <div className="xui-pl-1" style={{"width": "calc(100% - 70px)"}}>
+                    <p className="xui-font-sz-85 xui-opacity-8">Our Phone Number</p>
+                    <h3 className="xui-font-sz-130 xui-mt-half xui-font-w-500">+447441395374</h3>
+                </div>
 
             </div>
             <div className="xui-d-flex xui-flex-ai-center xui-flex-jc-space-between xui-mt-1">
@@ -53,7 +61,7 @@ export default function Footer(){
                         <CustomMailIcon />
                     </span>
                     <input type="search" placeholder="Your email address"/>
-                    <Link to="mailto:haulway@gmail.com" className="footer-input-email-btn xui-text-dc-none">Get Early Access </Link>
+                    <Link to="mailto:contact@haulway.co" className="footer-input-email-btn xui-text-dc-none">Get Early Access </Link>
                 </div>
             </div>
             <p className="xui-text-center xui-mt-4 xui-mb-1 xui-font-9 xui-text-dc-underline">Haulway is a registered trademark of Haulscape Technologies LTD UK-RC:15245660</p>

@@ -9,7 +9,7 @@ const Navbar = () => {
     const onSubmitHandler = (event) => {
         event.preventDefault();
         formData.email = email.current.value;
-        window.open("mailto:haulway@gmail.com?subject="+ "&body=");
+        window.open("mailto:contact@haulway.co?subject="+ "&body=");
     }
     
     return (

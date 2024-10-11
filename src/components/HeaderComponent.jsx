@@ -2,9 +2,10 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import AppDownload from "../assets/media/images/app-download.png";
 import PlayDownload from "../assets/media/images/play-download.png";
+import LazyImage from "../assets/media/images/bgs/image-loading.png";
 
 const HeaderComponent = (props) => {
-    const { children, paragraph, isDownload, image } = props;
+    const { children, paragraph, isDownload, image, customClass } = props;
     useEffect(() => {
         window.xuiScrollOnAnimation();
         window.xuiLazyLoadings();
@@ -22,12 +23,12 @@ const HeaderComponent = (props) => {
                     </div>
                 ) : (
                     <div className='xui-d-flex xui-flex-ai-center xui-grid-gap-1 xui-mt-1-half'>
-                        <p>Button gpes here</p>
+                        <Link to='/' className='xui-text-dc-none xui-text-white xui-py-1 xui-bdr-rad-half xui-px-1-half xui-bg-black'>Get Started</Link>
                     </div>
                 )}
             </div>
             <div xui-aos="fade-right" xui-aos-duration=".8" xui-aos-delay=".25"  className='xui-lg-col-6 xui-col-12'>
-                <img src={image} className='xui-img-600' alt="" />
+                <img src={image} className={`xui-mx-auto ${customClass}`} alt="" />
             </div>
         </div>
     );

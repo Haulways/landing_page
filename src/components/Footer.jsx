@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 export default function Footer(){
     return(
         <>
-        <footer className="xui-px-1-half xui-py-1 haulway-footer xui-bg-black xui-text-white xui-bdr-rad-1">
+        <footer className="xui-px-1-half xui-py-1 xui-mt-1-half haulway-footer xui-bg-black xui-text-white xui-bdr-rad-1">
             <div className="xui-d-grid xui-grid-gap-3 xui-grid-col-1 xui-lg-grid-col-3 xui-mt-2">
                 <div className="xui-d-flex">
                     <div className="xui-w-70 xui-h-70">

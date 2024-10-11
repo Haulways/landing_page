@@ -153,6 +153,9 @@
     display: flex;
     justify-content: space-between;
     margin-top: 2rem;
+    position: relative;
+    z-index: 1;
+    width: 100%;
 }
 .cta-tab-paragraph{
     max-width: 350px;
@@ -165,6 +168,12 @@
     max-width: 300px;
     grid-gap: 1rem;
     justify-content: center;
+}
+.haulway-body-section section{
+    background-color: #FFF;
+    min-height: 100vh;
+    height: 100%;
+    /* overflow-y: auto; */
 }
 .cta-tab-btn{
     padding: 0.5rem 2rem;
@@ -184,23 +193,25 @@
 #selectView {
     position: fixed;
     left: 0;
-    bottom: -100%;
+    top: -200%;
     transition: .4s;
 }
 #selectView.animate {
-    bottom: 0;
+    top: var(--navbarHeight);
+    position: absolute;
 }
-#selectView.animate.selected {
-    left: -100%;
-}
-#firewall {
+/* #selectView.animate.selected {
+    left: -200%;
+} */
+#lookBook {
     position: fixed;
-    top: 0;
-    right: -100%;
+    left: 0;
+    top: -200%;
     transition: .4s;
 }
-#firewall.animate {
-    right: 0;
+#lookBook.animate {
+    top: var(--navbarHeight);
+    position: absolute;
 }
 #questions {
     position: fixed;

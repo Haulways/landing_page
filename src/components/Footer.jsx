@@ -16,9 +16,9 @@ export default function Footer(){
                         <FooterIcon1 />
                     </div>
                     <div className="xui-pl-1" style={{"width": "calc(100% - 70px)"}}>
-                        <p className="xui-font-sz-85 xui-opacity-8">For Users</p>
-                        <h3 className="xui-font-sz-130 xui-mt-half xui-font-w-500">Social Shopping Experience</h3>
-                        <p className="xui-font-sz-90 xui-mt-half xui-line-height-1-half xui-opacity-8">Haulway offers a social, immersive shopping experience with curated content, influencer follows, and unique brand discovery.</p>
+                        <p className="xui-font-sz-80 xui-mobile-font-sz-85 xui-opacity-8">For Users</p>
+                        <h3 className="xui-font-sz-130 xui-mobile-font-sz-120 xui-mt-half xui-font-w-500">Social Shopping Experience</h3>
+                        <p className="xui-font-sz-90 xui-mobile-font-sz-85 xui-mt-half xui-line-height-1-half xui-opacity-8">Haulway offers a social, immersive shopping experience with curated content, influencer follows, and unique brand discovery.</p>
                     </div>
 
                 </div>
@@ -27,9 +27,9 @@ export default function Footer(){
                         <FooterIcon2 />
                     </div>
                     <div className="xui-pl-1" style={{"width": "calc(100% - 70px)"}}>
-                        <p className="xui-font-sz-85 xui-opacity-8">For Influencers</p>
-                        <h3 className="xui-font-sz-130 xui-mt-half xui-font-w-500">Brand Monetization</h3>
-                        <p className="xui-font-sz-90 xui-mt-half xui-line-height-1-half xui-opacity-8">Haulway equips micro-influencers and creators to grow their brands and earn through flexible brand partnerships.</p>
+                        <p className="xui-font-sz-80 xui-mobile-font-sz-85 xui-opacity-8">For Influencers</p>
+                        <h3 className="xui-font-sz-130 xui-mobile-font-sz-120 xui-mt-half xui-font-w-500">Brand Monetization</h3>
+                        <p className="xui-font-sz-90 xui-mobile-font-sz-85 xui-mt-half xui-line-height-1-half xui-opacity-8">Haulway equips micro-influencers and creators to grow their brands and earn through flexible brand partnerships.</p>
                     </div>
 
                 </div>
@@ -38,33 +38,24 @@ export default function Footer(){
                         <FooterIcon1 />
                     </div>
                     <div className="xui-pl-1" style={{"width": "calc(100% - 70px)"}}>
-                        <p className="xui-font-sz-85 xui-opacity-8">For Vendors</p>
-                        <h3 className="xui-font-sz-130 xui-mt-half xui-font-w-500">Product Showcase & Sales</h3>
-                        <p className="xui-font-sz-90 xui-mt-half xui-line-height-1-half xui-opacity-8">Haulway enables vendors to display products through video content, engaging audiences & grow their business with influencer partnerships.</p>
+                        <p className="xui-font-sz-80 xui-mobile-font-sz-85 xui-opacity-8">For Vendors</p>
+                        <h3 className="xui-font-sz-130 xui-mobile-font-sz-120 xui-mt-half xui-font-w-500">Product Showcase & Sales</h3>
+                        <p className="xui-font-sz-90 xui-mobile-font-sz-85 xui-mt-half xui-line-height-1-half xui-opacity-8">Haulway enables vendors to display products through video content, engaging audiences & grow their business with influencer partnerships.</p>
                     </div>
 
-                </div>
-                <div className="xui-pl-1" style={{"width": "calc(100% - 70px)"}}>
-                    <p className="xui-font-sz-85 xui-opacity-8">Our Email</p>
-                    <h3 className="xui-font-sz-130 xui-mt-half xui-font-w-500">contact@haulway.co</h3>
-                </div>
-                <div className="xui-pl-1" style={{"width": "calc(100% - 70px)"}}>
-                    <p className="xui-font-sz-85 xui-opacity-8">Our Phone Number</p>
-                    <h3 className="xui-font-sz-130 xui-mt-half xui-font-w-500">+447441395374</h3>
                 </div>
 
             </div>
             <div className="xui-d-flex xui-flex-ai-center xui-flex-jc-space-between xui-mt-1">
-                <h3 className="xui-font-sz-200 xui-font-w-500">Get Early Access To Haulway App</h3>
-                <div className="footer-input-email-holder">
+                <h3 className="xui-font-sz-200 xui-mobile-font-sz-120 xui-font-w-500">Get Early Access To Haulway App</h3>
+                <div className="footer-input-email-holder xui-lg-mt-none xui-mt-1">
                     <span>
                         <CustomMailIcon />
                     </span>
                     <input type="search" placeholder="Your email address"/>
-                    <Link to="mailto:contact@haulway.co" className="footer-input-email-btn xui-text-dc-none">Get Early Access </Link>
+                    <Link to="mailto:contact@haulway.co" className="footer-input-email-btn xui-text-dc-none xui-font-sz-85 xui-mobile-font-sz-65">Get Early Access </Link>
                 </div>
             </div>
-            <p className="xui-text-center xui-mt-4 xui-mb-1 xui-font-9 xui-text-dc-underline">Haulway is a registered trademark of Haulscape Technologies LTD UK-RC:15245660</p>
         </footer>
         </>
     );

@@ -14,7 +14,7 @@ const HeaderComponent = (props) => {
     return (
         <div className='xui-row'>
             <div xui-aos="fade-left" xui-aos-duration=".8" className='xui-lg-col-6 xui-col-12'>
-                <h1 className='haulway-heading-text xui-lg-font-sz-350 xui-font-sz-180 xui-font-w-500'>{children}</h1>
+                <h1 className='haulway-heading-text xui-line-height-2-half xui-lg-font-sz-350 xui-font-sz-180 xui-font-w-500'>{children}</h1>
                 {isDownload ? (
                     <div className='xui-d-flex xui-lg-flex-jc-flex-end xui-flex-jc-center xui-pb-1 xui-lg-pr-8 xui-pr-1 stroke'>
                         <Stroke />

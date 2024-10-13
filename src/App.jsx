@@ -6,6 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import './assets/styles/custom.css'
 import Navbar from './components/Navbar';
 import Loader from "./components/Loader";
+import Features from "./pages/Features";
 const Home = lazy(() => import('./pages/Home'));
 const Explore = lazy(() => import('./pages/explore/Explore'));
 
@@ -38,6 +39,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/explore' element={<Explore />} />
+          <Route path='/features' element={<Features />} />
           <Route path='*' element={<h1>No Match</h1>} />
         </Routes>
       </Suspense>

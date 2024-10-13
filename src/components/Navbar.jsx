@@ -46,6 +46,16 @@ const Navbar = () => {
                                 </>
                             )}
                         </NavLink>
+                        <NavLink className={({ isActive }) => isActive  ? 'xui-font-sz-120 xui-lg-ml-1 xui-ml-none xui-md-font-sz-200 xui-lg-font-sz-100 xui-font-w-600 active-link xui-text-black': 'xui-font-sz-120 xui-md-font-sz-200 xui-lg-font-sz-100 xui-text-black xui-opacity-7'} to="features">
+                            {({ isActive }) => (
+                                <>
+                                <p>Features</p>
+                                <span className={isActive ? 'xui-w-35 xui-h-35 xui-bdr-rad-circle haulway-bg-white xui-lg-d-none xui-d-flex xui-flex-ai-center xui-flex-jc-center' : 'xui-w-40 xui-h-40 xui-bdr-rad-circle haulway-bg-grey xui-lg-d-none xui-d-flex xui-flex-ai-center xui-flex-jc-center'}>
+                                        <ArrowUpRight size={15} color='black' />
+                                </span>
+                                </>
+                            )}
+                        </NavLink>
 
                         </li>
                         {/* <li>

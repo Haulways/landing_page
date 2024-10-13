@@ -189,6 +189,9 @@
     outline: none;
     border-radius: .5rem;
 }
+.xui-line-height-2-half{
+    line-height: 4.2rem;
+}
 .haulway-loader-logo-holder {
     animation-name: loaderScale;
     animation-iteration-count: infinite;
@@ -292,6 +295,9 @@ input {
         padding: 0.5rem 1rem;
         font-size: 70%;
         font-weight: 600;
+    }
+    .xui-line-height-2-half{
+        line-height: 2.8rem;
     }
 }
 @media screen and (max-width: 820px) {

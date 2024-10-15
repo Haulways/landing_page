@@ -215,14 +215,7 @@
     max-width: 350px;
 }
 .coming-soon{
-    position: fixed;
-    width: 100%;
-    min-height: 100vh;
-    height: 100%;
-    top: 0;
-    left: 0;
     background-color: #FFF;
-    z-index: 10;
     display: flex;
     justify-content: center;
     align-items: center;

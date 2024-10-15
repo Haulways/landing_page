@@ -16,7 +16,7 @@ const MainFooter = () => {
                     </h1>
                 </div>
                 <div>
-                    <p className='xui-mt-1 xui-lg-font-sz-100 xui-font-sz-90 xui-font-w-600'>Get Early Access to Haulway App</p>
+                    <p className='xui-mt-1 xui-lg-font-sz-100 xui-font-sz-90 xui-font-w-600'>Get Early Access to the Haulway App</p>
                     <div className="footer-input-email-holder main-footer-input xui-mt-1">
                         <input type="search" placeholder="Your email address"/>
                         <Link to="mailto:contact@haulway.co" className="footer-input-email-btn xui-text-dc-none xui-font-sz-85 xui-mobile-font-sz-65">Join now</Link>

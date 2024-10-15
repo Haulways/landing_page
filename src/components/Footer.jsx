@@ -47,7 +47,7 @@ export default function Footer(){
 
             </div>
             <div className="xui-d-flex xui-flex-ai-center xui-flex-jc-space-between xui-mt-1">
-                <h3 className="xui-font-sz-200 xui-mobile-font-sz-120 xui-font-w-500">Get Early Access To Haulway App</h3>
+                <h3 className="xui-font-sz-200 xui-mobile-font-sz-120 xui-font-w-500">Get Early Access to the Haulway App</h3>
                 <div className="footer-input-email-holder xui-lg-mt-none xui-mt-1">
                     <span>
                         <CustomMailIcon />

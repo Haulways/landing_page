@@ -5,9 +5,83 @@ import FacebookIcon from './icons/FacebookIcon';
 import GrascopeLogo from "../assets/media/images/grascope-logo.png";
 import InstagramIcon from './icons/InstagramIcon';
 import LinkedInIcon from './icons/LinkedInIcon';
+import { API_URL } from "../../globals.json";
+import axios from "axios";
+import { useForm } from "react-hook-form";
+import ErrorAlert from '../components/alerts/Error';
+import SuccessAlert from '../components/alerts/Success';
+import { useState } from "react";
+import ThankYouModal from "./ThankYouModal";
+import confetti from "canvas-confetti";
 
 const MainFooter = () => {
+    const { handleSubmit, register, formState: { errors, isValid }, reset } = useForm();
+    const [validationErrMsg, setValidationErrMsg] = useState('');
+    const [successErrMsg, setSuccessErrMsg] = useState('');
+    const [isDisabled, setIsDisabled] = useState(false);
+    const handleClick = () => {
+        const end = Date.now() + 3 * 1000; // 3 seconds
+        const colors = ["#000", "#000", "#000", "#000"];
+
+        const frame = () => {
+            if (Date.now() > end) return;
+
+            confetti({
+                particleCount: 2,
+                angle: 60,
+                spread: 55,
+                startVelocity: 60,
+                origin: { x: 0, y: 0.5 },
+                colors: colors,
+                zIndex: 2247483646
+            });
+            confetti({
+                particleCount: 2,
+                angle: 120,
+                spread: 55,
+                startVelocity: 60,
+                origin: { x: 1, y: 0.5 },
+                colors: colors,
+                zIndex: 2247483646
+            });
+
+            requestAnimationFrame(frame);
+        };
+
+        frame();
+    };
+    const sendEmail = (fields) => {
+        const newData = { ...fields };
+        console.log(newData);
+        setIsDisabled(true);
+        axios({
+            method: "POST",
+            url: `${API_URL}/website/register`,
+            data: newData
+        })
+        .then((res) => {
+            console.log(res);
+            setSuccessErrMsg(res.data.message);
+            window.xuiAnimeStart('successAlert');
+            setTimeout(() => {
+                window.xuiAnimeEnd('successAlert');
+                reset();
+                window.xuiModalShow('thanks-modal');
+                handleClick();
+                setIsDisabled(false);
+            }, 3200);
+        }, (err) => {
+            console.log(err);
+            setIsDisabled(false);
+            setValidationErrMsg(err.response.status === 422 ? err.response.data.data[0].msg : err.response.status === 422 ? err.response.data.data[0].msg : err.response.data.message);
+            window.xuiAnimeStart('errorAlert');
+            setTimeout(() => {
+                window.xuiAnimeEnd('errorAlert');
+            }, 3200);
+        });
+    }
     return (
+        <>
         <section className="main-footer xui-lg-py-3 xui-py-1 xui-container">
             <div className='xui-d-grid xui-lg-grid-col-2 xui-grid-col-1 xui-grid-gap-1 xui-flex-ai-flex-end'>
                 <div>
@@ -15,13 +89,15 @@ const MainFooter = () => {
                         <p>GET STARTED</p> <p>WITH <span className='xui-font-w-700'>HAULWAY</span></p>
                     </h1>
                 </div>
-                <div>
-                    <p className='xui-mt-1 xui-lg-font-sz-100 xui-font-sz-90 xui-font-w-600'>Get Early Access to the Haulway App</p>
-                    <div className="footer-input-email-holder main-footer-input xui-mt-1">
-                        <input type="search" placeholder="Your email address"/>
-                        <Link to="mailto:contact@haulway.co" className="footer-input-email-btn xui-text-dc-none xui-font-sz-85 xui-mobile-font-sz-65">Join now</Link>
+                <form onSubmit={handleSubmit(sendEmail)} autoComplete="off" noValidate>
+                    <div>
+                        <p className='xui-mt-1 xui-lg-font-sz-100 xui-font-sz-90 xui-font-w-600'>Get Early Access to the Haulway App</p>
+                        <div className="footer-input-email-holder main-footer-input xui-mt-1">
+                            <input {...register('email', {required: 'Please enter your email',pattern: {value: /^\S+@\S+$/i,message: 'Invalid email address'}})} type="email" name="email" id="email" placeholder="Your email address"/>
+                            <button type="submit" disabled={isDisabled} className="footer-input-email-btn xui-text-dc-none xui-font-sz-85 xui-mobile-font-sz-65">{isDisabled ? 'Granting access...' : 'Join now'}</button>
+                        </div>
                     </div>
-                </div>
+                </form>
             </div>
             <div className='xui-row xui-mt-4'>
                 <div className='xui-lg-col-9 xui-col-12'>
@@ -51,6 +127,10 @@ const MainFooter = () => {
                 <p className='xui-lg-font-sz-100 xui-font-sz-60 xui-font-w-500 xui-d-inline-flex xui-flex-ai-center xui-grid-gap-half'>&copy; 2024 Powered by <Link className='xui-d-inline-block' to='https://www.grascope.com/' target='_blank'><img className='xui-img-80' src={GrascopeLogo} alt="" /></Link>- All right reserved</p>
             </div>
         </section>
+        <ThankYouModal />
+        <ErrorAlert name={`errorAlert`} message={validationErrMsg} />
+        <SuccessAlert name={`successAlert`} message={successErrMsg} noIcon={true} />
+        </>
     );
 };
 

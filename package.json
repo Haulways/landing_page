@@ -13,13 +13,19 @@
     "@carbon/icons-react": "^11.49.0",
     "@vitejs/plugin-react-swc": "^3.7.0",
     "aos": "^2.3.4",
+    "axios": "^1.7.7",
+    "canvas-confetti": "^1.9.3",
+    "clsx": "^2.1.1",
+    "framer-motion": "^11.11.9",
     "gsap": "^3.12.5",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-hook-form": "^7.53.0",
     "react-router-dom": "^6.26.2",
     "react-typed": "^2.0.12",
     "react-undraw-illustrations": "^2.0.3",
-    "swiper": "^11.1.14"
+    "swiper": "^11.1.14",
+    "tailwind-merge": "^2.5.4"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",

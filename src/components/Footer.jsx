@@ -5,8 +5,81 @@ import FooterIcon1 from "./icons/FooterIcon1";
 import FooterIcon2 from "./icons/FooterIcon2";
 import CustomMailIcon from "./icons/CustomMailIcon";
 import { Link } from "react-router-dom";
+import { API_URL } from "../../globals.json";
+import axios from "axios";
+import { useForm } from "react-hook-form";
+import ErrorAlert from '../components/alerts/Error';
+import SuccessAlert from '../components/alerts/Success';
+import { useState } from "react";
+import ThankYouModal from "./ThankYouModal";
+import confetti from "canvas-confetti";
 
 export default function Footer(){
+    const { handleSubmit, register, formState: { errors, isValid }, reset } = useForm();
+    const [validationErrMsg, setValidationErrMsg] = useState('');
+    const [successErrMsg, setSuccessErrMsg] = useState('');
+    const [isDisabled, setIsDisabled] = useState(false);
+    const handleClick = () => {
+        const end = Date.now() + 3 * 1000; // 3 seconds
+        const colors = ["#000", "#000", "#000", "#000"];
+
+        const frame = () => {
+            if (Date.now() > end) return;
+
+            confetti({
+                particleCount: 2,
+                angle: 60,
+                spread: 55,
+                startVelocity: 60,
+                origin: { x: 0, y: 0.5 },
+                colors: colors,
+                zIndex: 2247483646
+            });
+            confetti({
+                particleCount: 2,
+                angle: 120,
+                spread: 55,
+                startVelocity: 60,
+                origin: { x: 1, y: 0.5 },
+                colors: colors,
+                zIndex: 2247483646
+            });
+
+            requestAnimationFrame(frame);
+        };
+
+        frame();
+    };
+    const sendEmail = (fields) => {
+        const newData = { ...fields };
+        console.log(newData);
+        setIsDisabled(true);
+        axios({
+            method: "POST",
+            url: `${API_URL}/website/register`,
+            data: newData
+        })
+        .then((res) => {
+            console.log(res);
+            setSuccessErrMsg(res.data.message);
+            window.xuiAnimeStart('successAlert');
+            setTimeout(() => {
+                window.xuiAnimeEnd('successAlert');
+                reset();
+                window.xuiModalShow('thanks-modal');
+                handleClick();
+                setIsDisabled(false);
+            }, 3200);
+        }, (err) => {
+            console.log(err);
+            setIsDisabled(false);
+            setValidationErrMsg(err.response.status === 422 ? err.response.data.data[0].msg : err.response.status === 422 ? err.response.data.data[0].msg : err.response.data.message);
+            window.xuiAnimeStart('errorAlert');
+            setTimeout(() => {
+                window.xuiAnimeEnd('errorAlert');
+            }, 3200);
+        });
+    }
     return(
         <>
         <footer className="xui-px-1-half xui-py-1 xui-mt-1-half haulway-footer xui-bg-black xui-text-white xui-bdr-rad-1">
@@ -48,15 +121,21 @@ export default function Footer(){
             </div>
             <div className="xui-d-flex xui-flex-ai-center xui-flex-jc-space-between xui-mt-1">
                 <h3 className="xui-font-sz-200 xui-mobile-font-sz-120 xui-font-w-500">Get Early Access to the Haulway App</h3>
-                <div className="footer-input-email-holder xui-lg-mt-none xui-mt-1">
-                    <span>
-                        <CustomMailIcon />
-                    </span>
-                    <input type="search" placeholder="Your email address"/>
-                    <Link to="mailto:contact@haulway.co" className="footer-input-email-btn xui-text-dc-none xui-font-sz-85 xui-mobile-font-sz-65">Get Early Access </Link>
-                </div>
+                <form onSubmit={handleSubmit(sendEmail)} autoComplete="off" noValidate>
+                    <div className="footer-input-email-holder xui-lg-mt-none xui-mt-1">
+                        <span>
+                            <CustomMailIcon />
+                        </span>
+                        <input {...register('email', {required: 'Please enter your email',pattern: {value: /^\S+@\S+$/i,message: 'Invalid email address'}})} type="email" name="email" id="email" placeholder="Your email address"/>
+                        <button type="submit" disabled={isDisabled} className="footer-input-email-btn xui-text-dc-none xui-font-sz-85 xui-mobile-font-sz-65">{isDisabled ? 'Granting access...' : 'Get Early Access'}</button>
+                    </div>
+                    {errors.email && <span className="xui-form-error-msg xui-text-red xui-mt-half xui-d-inline-block">{errors.email.message}</span>}
+                </form>
             </div>
         </footer>
+        <ThankYouModal />
+        <ErrorAlert name={`errorAlert`} message={validationErrMsg} />
+        <SuccessAlert name={`successAlert`} message={successErrMsg} noIcon={true} />
         </>
     );
 }

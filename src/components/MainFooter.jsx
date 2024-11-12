@@ -105,7 +105,7 @@ const MainFooter = () => {
                             <input className='xui-mt-1-half' {...register('email', {required: 'Please enter your email', pattern: {value: /^\S+@\S+$/i,message: 'Invalid email address'}})} type="email" name="email" id="email" placeholder="Your email address"/>
                             {errors.email && <span className="xui-badge xui-badge-danger xui-d-block xui-w-fluid-100 xui-bdr-rad-2 xui-lg-font-sz-90 xui-font-sz-80 xui-mt-1">{errors.email.message}</span>}
                         </div>
-                        <button type="submit" disabled={isDisabled} className="xui-mt-1-half">{isDisabled ? 'Granting access...' : 'Subscribe Now'}</button>
+                        <button type="submit" disabled={isDisabled} className="xui-mt-1-half">{isDisabled ? 'Granting access...' : 'Join Waitlist'}</button>
                         {/* <div className="footer-input-email-holder main-footer-input xui-mt-1">
                             
                             <button type="submit" disabled={isDisabled} className="footer-input-email-btn xui-text-dc-none xui-font-sz-85 xui-mobile-font-sz-65">{isDisabled ? 'Granting access...' : 'Join now'}</button>

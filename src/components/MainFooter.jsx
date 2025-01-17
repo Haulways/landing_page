@@ -126,7 +126,7 @@ const MainFooter = () => {
             <div className='xui-row xui-mt-4'>
                 <div className='xui-lg-col-9 xui-col-12'>
                     <p className='xui-lg-font-sz-100 xui-font-sz-90 xui-font-w-600'>INFO</p>
-                    <p className='xui-lg-font-sz-90 xui-font-sz-85 xui-font-w-600 xui-mt-1 xui-text-dc-underline'>Haulway is a registered trademark of Haulscape Technologies LTD UK-RC:15245660</p>
+                    <p className='xui-lg-font-sz-90 xui-font-sz-85 xui-font-w-600 xui-mt-1 xui-text-dc-underline'>© {new Date().getFullYear()} Haulway. Haulway is a trademark of Haulscape Technologies Ltd., a Grascope Industries company. UK-RC:15245660</p>
                 </div>
                 <div className='xui-lg-col-3 xui-col-12'>
                     <p className='xui-lg-font-sz-100 xui-font-sz-90 xui-font-w-600 xui-lg-mt-none xui-mt-4'>FOLLOW US</p>
@@ -137,8 +137,12 @@ const MainFooter = () => {
                     </div>
                 </div>
             </div>
+            <div className='xui-mt-4'>
+                <p className='xui-lg-font-sz-100 xui-font-sz-90 xui-font-w-600'>ABOUT US</p>
+                <p className='xui-lg-font-sz-90 xui-font-sz-85 xui-font-w-600 xui-mt-1 xui-opacity-6 xui-line-height-1-half'>Haulway is the flagship product of Haulscape Technologies Ltd., a subsidiary of Grascope Industries. Grascope oversees innovative solutions across e-commerce, IT, and beyond, driving global impact through its projects.</p>
+            </div>
             <div className='xui-text-center xui-p-1-half xui-bdr-rad-2 xui-bg-black xui-text-white xui-mt-4'>
-                <p className='xui-lg-font-sz-100 xui-font-sz-60 xui-font-w-500 xui-d-inline-flex xui-flex-ai-center xui-grid-gap-half'>&copy; 2024 Powered by <Link className='xui-d-inline-block' to='https://www.grascope.com/' target='_blank'><img className='xui-img-80' src={GrascopeLogo} alt="" /></Link>- All right reserved</p>
+                <p className='xui-lg-font-sz-100 xui-font-sz-60 xui-font-w-500 xui-d-inline-flex xui-flex-ai-center xui-grid-gap-half'>&copy; {new Date().getFullYear()} Powered by <Link className='xui-d-inline-block' to='https://www.grascope.com/' target='_blank'><img className='xui-img-80' src={GrascopeLogo} alt="" /></Link>- All right reserved</p>
             </div>
         </section>
         <ThankYouModal />

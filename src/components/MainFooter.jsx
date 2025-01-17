@@ -126,7 +126,7 @@ const MainFooter = () => {
             <div className='xui-row xui-mt-4'>
                 <div className='xui-lg-col-9 xui-col-12'>
                     <p className='xui-lg-font-sz-100 xui-font-sz-90 xui-font-w-600'>INFO</p>
-                    <p className='xui-lg-font-sz-90 xui-font-sz-85 xui-font-w-600 xui-mt-1 xui-text-dc-underline'>© {new Date().getFullYear()} Haulway. Haulway is a trademark of Haulscape Technologies Ltd., a Grascope Industries company. UK-RC:15245660</p>
+                    <p className='xui-lg-font-sz-90 xui-font-sz-85 xui-font-w-600 xui-mt-1 xui-line-height-1-half xui-text-dc-underline'>© {new Date().getFullYear()} Haulway. Haulway is a trademark of Haulscape Technologies Ltd. <i>UK-RC:15245660</i>, <br /> a Grascope Industries company.</p>
                 </div>
                 <div className='xui-lg-col-3 xui-col-12'>
                     <p className='xui-lg-font-sz-100 xui-font-sz-90 xui-font-w-600 xui-lg-mt-none xui-mt-4'>FOLLOW US</p>

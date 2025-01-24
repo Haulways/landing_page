@@ -52,6 +52,9 @@ const MainFooter = () => {
     };
     const sendEmail = handleSubmit(async (data) => {
         setIsDisabled(true);
+
+        const BREVO_API_KEY = import.meta.env.VITE_BREVO_API_KEY;
+
         // Brevo contact list payload
         const messagePayload = {
           email: data.email,
@@ -98,7 +101,7 @@ const MainFooter = () => {
             messagePayload,
             {
               headers: {
-                "api-key": "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", // Replace with your Brevo API key
+                "api-key": BREVO_API_KEY, // Replace with your Brevo API key
                 "Content-Type": "application/json",
               },
             }
@@ -112,7 +115,7 @@ const MainFooter = () => {
               emailOptions,
               {
                 headers: {
-                  "api-key": "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", // Replace with your Brevo API key
+                  "api-key": BREVO_API_KEY, // Replace with your Brevo API key
                   "Content-Type": "application/json",
                 },
               }

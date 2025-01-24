@@ -50,36 +50,135 @@ const MainFooter = () => {
 
         frame();
     };
-    const sendEmail = (fields) => {
-        const newData = { ...fields };
-        console.log(newData);
+    const sendEmail = handleSubmit(async (data) => {
         setIsDisabled(true);
-        axios({
-            method: "POST",
-            url: `${API_URL}/website/register`,
-            data: newData
-        })
-        .then((res) => {
-            console.log(res);
-            setSuccessErrMsg(res.data.message);
-            window.xuiAnimeStart('successAlert');
-            setTimeout(() => {
-                window.xuiAnimeEnd('successAlert');
-                reset();
-                window.xuiModalShow('thanks-modal');
-                handleClick();
-                setIsDisabled(false);
-            }, 3200);
-        }, (err) => {
-            console.log(err);
-            setIsDisabled(false);
-            setValidationErrMsg(err.response.status === 422 ? err.response.data.data[0].msg : err.response.status === 422 ? err.response.data.data[0].msg : err.response.data.message);
+        // Brevo contact list payload
+        const messagePayload = {
+          email: data.email,
+          attributes: {
+            firstName: data.firstName,
+            lastName: data.lastName,
+          },
+          emailBlacklisted: false,
+          smsBlacklisted: false,
+          listIds: [6], // Adjust the list ID as needed
+          updateEnabled: false,
+        };
+    
+        // Brevo email payload
+        const emailOptions = {
+          sender: {
+            name: "Haulway Team",
+            email: "support@haulway.com", // Use your verified sender email
+          },
+          to: [
+            {
+              email: data.email,
+              name: `${data.firstName} ${data.lastName}`,
+            },
+          ],
+          subject: "Thank You for Joining the Haulway Waitlist!",
+          htmlContent: `
+            <!DOCTYPE html>
+            <html>
+            <body>
+              <h1>Welcome to Haulway!</h1>
+              <p>Dear ${data.firstName},</p>
+              <p>Thank you for joining our waitlist. We'll keep you updated on the latest developments and opportunities.</p>
+              <p>Best regards,<br>The Haulway Team</p>
+            </body>
+            </html>
+          `,
+        };
+    
+        try {
+          // Send contact to Brevo
+          const brevoContactRes = await axios.post(
+            "https://api.brevo.com/v3/contacts",
+            messagePayload,
+            {
+              headers: {
+                "api-key": "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", // Replace with your Brevo API key
+                "Content-Type": "application/json",
+              },
+            }
+          );
+          console.log(brevoContactRes);
+    
+          if (brevoContactRes.status === 201) {
+            // Send email via Brevo
+            await axios.post(
+              "https://api.brevo.com/v3/smtp/email",
+              emailOptions,
+              {
+                headers: {
+                  "api-key": "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", // Replace with your Brevo API key
+                  "Content-Type": "application/json",
+                },
+              }
+            );
+    
+            // Submit to the /website/register API
+            const registerRes = await axios.post(`${API_URL}/website/register`, data);
+    
+            if (registerRes.status === 200 || registerRes.status === 201) {
+                setSuccessErrMsg(registerRes.data.message);
+                window.xuiAnimeStart('successAlert');
+                setTimeout(() => {
+                  window.xuiAnimeEnd('successAlert');
+                  reset();
+                  window.xuiModalShow('thanks-modal');
+                  handleClick();
+                }, 3200);
+            }
+          }
+        } catch (error) {
+            console.error(error);
+
+            // Set error message
+            setValidationErrMsg(
+              error.response?.data?.message || "An error occurred. Please try again."
+            );
+        
+            // Trigger error alert
             window.xuiAnimeStart('errorAlert');
             setTimeout(() => {
-                window.xuiAnimeEnd('errorAlert');
+              window.xuiAnimeEnd('errorAlert');
             }, 3200);
-        });
-    }
+        } finally {
+          setIsDisabled(false);
+        }
+      });
+    // const sendEmail = (fields) => {
+    //     const newData = { ...fields };
+    //     console.log(newData);
+    //     setIsDisabled(true);
+    //     axios({
+    //         method: "POST",
+    //         url: `${API_URL}/website/register`,
+    //         data: newData
+    //     })
+    //     .then((res) => {
+    //         console.log(res);
+    //         setSuccessErrMsg(res.data.message);
+    //         window.xuiAnimeStart('successAlert');
+    //         setTimeout(() => {
+    //             window.xuiAnimeEnd('successAlert');
+    //             reset();
+    //             window.xuiModalShow('thanks-modal');
+    //             handleClick();
+    //             setIsDisabled(false);
+    //         }, 3200);
+    //     }, (err) => {
+    //         console.log(err);
+    //         setIsDisabled(false);
+    //         setValidationErrMsg(err.response.status === 422 ? err.response.data.data[0].msg : err.response.status === 422 ? err.response.data.data[0].msg : err.response.data.message);
+    //         window.xuiAnimeStart('errorAlert');
+    //         setTimeout(() => {
+    //             window.xuiAnimeEnd('errorAlert');
+    //         }, 3200);
+    //     });
+    // }
     return (
         <>
         <section className="main-footer xui-lg-py-3 xui-py-1 xui-container">

@@ -51,107 +51,106 @@ const MainFooter = () => {
         frame();
     };
     const sendEmail = handleSubmit(async (data) => {
-        setIsDisabled(true);
-
-        const BREVO_API_KEY = import.meta.env.VITE_BREVO_API_KEY;
-
-        // Brevo contact list payload
-        const messagePayload = {
+      setIsDisabled(true);
+      const BREVO_API_KEY = import.meta.env.VITE_BREVO_API_KEY;
+  
+      const messagePayload = {
           email: data.email,
           attributes: {
-            firstName: data.firstName,
-            lastName: data.lastName,
+              firstName: data.firstName,
+              lastName: data.lastName,
           },
           emailBlacklisted: false,
           smsBlacklisted: false,
           listIds: [6], // Adjust the list ID as needed
           updateEnabled: false,
-        };
-    
-        // Brevo email payload
-        const emailOptions = {
+      };
+  
+      const emailOptions = {
           sender: {
-            name: "Haulway Team",
-            email: "support@haulway.com", // Use your verified sender email
+              name: "Haulway Team",
+              email: "support@haulway.com",
           },
           to: [
-            {
-              email: data.email,
-              name: `${data.firstName} ${data.lastName}`,
-            },
+              {
+                  email: data.email,
+                  name: `${data.firstName} ${data.lastName}`,
+              },
           ],
           subject: "Thank You for Joining the Haulway Waitlist!",
           htmlContent: `
-            <!DOCTYPE html>
-            <html>
-            <body>
-              <h1>Welcome to Haulway!</h1>
-              <p>Dear ${data.firstName},</p>
-              <p>Thank you for joining our waitlist. We'll keep you updated on the latest developments and opportunities.</p>
-              <p>Best regards,<br>The Haulway Team</p>
-            </body>
-            </html>
+              <!DOCTYPE html>
+              <html>
+              <body>
+                  <h1>Welcome to Haulway!</h1>
+                  <p>Dear ${data.firstName},</p>
+                  <p>Thank you for joining our waitlist. We'll keep you updated on the latest developments and opportunities.</p>
+                  <p>Best regards,<br>The Haulway Team</p>
+              </body>
+              </html>
           `,
-        };
-    
-        try {
-          // Send contact to Brevo
+      };
+  
+      let brevoSuccess = false;
+  
+      try {
+          // Attempt to send contact to Brevo
           const brevoContactRes = await axios.post(
-            "https://api.brevo.com/v3/contacts",
-            messagePayload,
-            {
-              headers: {
-                "api-key": BREVO_API_KEY, // Replace with your Brevo API key
-                "Content-Type": "application/json",
-              },
-            }
-          );
-          console.log(brevoContactRes);
-    
-          if (brevoContactRes.status === 201) {
-            // Send email via Brevo
-            await axios.post(
-              "https://api.brevo.com/v3/smtp/email",
-              emailOptions,
+              "https://api.brevo.com/v3/contacts",
+              messagePayload,
               {
-                headers: {
-                  "api-key": BREVO_API_KEY, // Replace with your Brevo API key
-                  "Content-Type": "application/json",
-                },
+                  headers: {
+                      "api-key": BREVO_API_KEY,
+                      "Content-Type": "application/json",
+                  },
               }
-            );
-    
-            // Submit to the /website/register API
-            const registerRes = await axios.post(`${API_URL}/website/register`, data);
-    
-            if (registerRes.status === 200 || registerRes.status === 201) {
-                setSuccessErrMsg(registerRes.data.message);
-                window.xuiAnimeStart('successAlert');
-                setTimeout(() => {
+          );
+          if (brevoContactRes.status === 201) {
+              brevoSuccess = true;
+  
+              // Attempt to send email via Brevo
+              await axios.post(
+                  "https://api.brevo.com/v3/smtp/email",
+                  emailOptions,
+                  {
+                      headers: {
+                          "api-key": BREVO_API_KEY,
+                          "Content-Type": "application/json",
+                      },
+                  }
+              );
+          }
+      } catch (error) {
+          console.error("Brevo error:", error);
+          // **Do not show error alert**, just log the error
+      }
+  
+      try {
+          // Always submit to /website/register, regardless of Brevo success
+          const registerRes = await axios.post(`${API_URL}/website/register`, data);
+  
+          if (registerRes.status === 200 || registerRes.status === 201) {
+              setSuccessErrMsg(registerRes.data.message);
+              window.xuiAnimeStart('successAlert');
+              setTimeout(() => {
                   window.xuiAnimeEnd('successAlert');
                   reset();
                   window.xuiModalShow('thanks-modal');
                   handleClick();
-                }, 3200);
-            }
-          }
-        } catch (error) {
-            console.error(error);
-
-            // Set error message
-            setValidationErrMsg(
-              error.response?.data?.message || "An error occurred. Please try again."
-            );
-        
-            // Trigger error alert
-            window.xuiAnimeStart('errorAlert');
-            setTimeout(() => {
-              window.xuiAnimeEnd('errorAlert');
-            }, 3200);
-        } finally {
-          setIsDisabled(false);
+              }, 3200);
         }
-      });
+      } catch (error) {
+          console.error("Website register error:", error);
+          setValidationErrMsg(error.response?.data?.message || "An error occurred. Please try again.");
+          window.xuiAnimeStart('errorAlert');
+          setTimeout(() => {
+              window.xuiAnimeEnd('errorAlert');
+          }, 3200);
+      } finally {
+          setIsDisabled(false);
+      }
+  });
+  
     // const sendEmail = (fields) => {
     //     const newData = { ...fields };
     //     console.log(newData);

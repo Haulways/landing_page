@@ -221,7 +221,7 @@ const MainFooter = () => {
                 </div>
                 <div className='xui-lg-col-3 xui-col-12 xui-lg-mt-none xui-mt-4'>
                     <p className='xui-lg-font-sz-100 xui-font-sz-90 xui-font-w-600'>QUICK LINKS</p>
-                    <p className='xui-lg-font-sz-90 xui-font-sz-85 xui-font-w-600 xui-mt-1'><Link to='/' className='xui-mr-half xui-text-dc-none xui-text-black'>Home</Link> / <Link to='explore' className='xui-ml-half xui-text-dc-none xui-text-black'>Explore</Link> / <Link to='features' className='xui-ml-half xui-text-dc-none xui-text-black'>Features</Link></p>
+                    <p className='xui-lg-font-sz-90 xui-font-sz-85 xui-font-w-600 xui-line-height-1-half xui-mt-1'><Link to='/' className='xui-mr-half xui-text-dc-none xui-text-black'>Home</Link> / <Link to='explore' className='xui-ml-half xui-text-dc-none xui-text-black'>Explore</Link> / <Link to='features' className='xui-ml-half xui-text-dc-none xui-text-black'>Features</Link> / <Link to='privacy/policy' className='xui-ml-half xui-text-dc-none xui-text-black'>Privacy Policy</Link> / <Link to='terms-and-conditions' className='xui-ml-half xui-text-dc-none xui-text-black'>Terms & Conditions</Link></p>
                 </div>
             </div>
             <div className='xui-row xui-mt-4'>

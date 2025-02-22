@@ -13,6 +13,8 @@ const Features = lazy(() => import('./pages/features/Features'));
 const FAQs = lazy(() => import('./pages/faqs/FAQs'));
 const Contact = lazy(() => import('./pages/contact/Contact'));
 const ComingSoon = lazy(() => import('./pages/ComingSoon'));
+const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
+const TermsAndConditions = lazy(() => import('./pages/TermsAndConditions'));
 
 gsap.registerPlugin(ScrollTrigger);
 function App() {
@@ -47,6 +49,8 @@ function App() {
           <Route path='/faqs' element={<FAQs />} />
           <Route path='/contact' element={<Contact />} />
           <Route path='/construction' element={<ComingSoon />} />
+          <Route path='/privacy/policy' element={<PrivacyPolicy />} />
+          <Route path='/terms-and-conditions' element={<TermsAndConditions />} />
           <Route path='*' element={<h1>No Match</h1>} />
         </Routes>
       </Suspense>

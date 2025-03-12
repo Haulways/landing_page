@@ -6,7 +6,7 @@ export default function Home(){
     return(
         <>
         <section className="xui-lg-py-3 xui-py-1 xui-container">
-            <HeaderComponent image={HeaderImage} customClass="xui-img-600" paragraph="Haulway is a trademark licensed from Haulscape Technologies Ltd. The platform, its technology, and operations are independently developed and managed by Grascope Industries Ltd. This ensures a seamless experience for our users while maintaining brand continuity under a structured agreement." isDownload={true}>
+            <HeaderComponent image={HeaderImage} customClass="xui-img-600" paragraph="Haulway is the platform for creative professionals to showcase work, sell products, and connect globally. Whether you're a vendor, influencer, or creator, Haulway combines social interaction with e-commerce to help grow your brand and monetize your talent." isDownload={true}>
                 <p>Empowering</p> <p>Designers, Creators,</p>  <p>& Influencers Globally</p>
             </HeaderComponent>
             <Footer />

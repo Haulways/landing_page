@@ -3,9 +3,11 @@
     --grey: #F5F5F5;
     --grey-ii:#E9E9E9;
     --light-dark:#222222;
+    --inactive-grey: #737373;
     --dark:#000000;
     --primary-bg: #f4f7fa;
     --primary: #000051;
+    --green: #F5FFFF;
     --primary-light: #CBEAFC;
     --primary-dark: hsl(169, 49%, 10%);
     --primary-darker: #002540;
@@ -50,6 +52,9 @@
 .haulway-bg-black {
     background-color: var(--black);
 }
+.haulway-bg-green{
+    background-color: var(--green);
+}
 .haulway-bg-orange {
     background-color: var(--orange);
 }
@@ -74,8 +79,14 @@
 .haulway-bg-white {
     background-color: var(--white);
 }
+.haulway-bg-inactive{
+    background-color: var(--inactive-grey);
+}
 .haulway-text-primary {
     color: var(--primary);
+}
+.haulway-text-inactive{
+    color: var(--inactive-grey);
 }
 .haulway-text-dark {
     color: var(--dark);
@@ -86,10 +97,6 @@
 .haulway-text-black {
     color: var(--black);
 }
-.haulway-body-section{
-    min-height: 100vh;
-    height: 100%;
-}
 .xui-navbar[layout="2"] .links{
     justify-content: space-between !important;
     width: 100%;
@@ -99,6 +106,126 @@
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+.waitlist-section label{
+    position:relative;
+    display: block;
+    height: 100%;
+  }
+  .waitlist-section input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1) brightness(45%);
+  }  
+  
+  .waitlist-section input:not(.waitlist-section input[type="checkbox"]),
+    .waitlist-section textarea,
+    .waitlist-section select,
+    .waitlist-custom-dropdown{
+    width:100%;
+    height: 70px;
+    padding:15px 15px;
+    /* margin-top:20px; */
+    border:none;
+    outline:none;
+    background-color: #D3D3D3;
+    color: #737373;
+    border-radius: .5rem;
+  }
+  .waitlist-section input:-webkit-autofill, input:-webkit-autofill:focus input:-webkit-autofill, input:-webkit-autofill:hover, select:-webkit-autofill, select:-webkit-autofill:focus, select:-webkit-autofill:hover, textarea:-webkit-autofill, textarea:-webkit-autofill:hover textarea:-webkit-autofill:focus{
+    background-color: #FFF !important;
+    -webkit-text-fill-color: #000
+  }
+  .pagination-indicator{
+    width: 32px;
+    height: 7px;
+    border-radius: 2rem;
+    background-color: #D3D3D3;
+    transition: .5s ease;
+  }
+  .pagination-indicator.active{
+    background-color: #141414;
+    width: 60px;
+  }
+  .waitlist-custom-dropdown {
+    position: relative;
+}
+
+.waitlist-dropdown-header {
+    height: 100%;
+    border-radius: 1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.waitlist-dropdown-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    border: 1px solid #ccc;
+    /* border-radius: 1rem; */
+    background: #F5F5F5;
+    z-index: 1;
+}
+
+.waitlist-dropdown-item {
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    grid-gap: 1rem;
+}
+
+.waitlist-dropdown-item input {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #333;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+    background-color: white;
+}
+
+.waitlist-dropdown-item input:checked {
+    background-color: #333;
+    border-color: #333;
+}
+
+.waitlist-dropdown-item input:checked::before {
+    content: "✔";
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.2s ease-in-out;
+}
+
+.waitlist-dropdown-header .arrow {
+    border: solid black;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(45deg);
+    transition: transform 0.2s;
+}
+
+.waitlist-dropdown-header .arrow.open {
+    transform: rotate(-135deg);
+}
+
+.xui-navbar .brand{
+    width: auto;
 }
 
 .footer-input-email-holder input, .footer-input-email-holder button{
@@ -116,6 +243,7 @@
 }
 .xui-navbar{
     background-color: #FFF;
+    position: fixed;
 }
 .xui-navbar[layout="2"] .links{
     justify-content: flex-end;

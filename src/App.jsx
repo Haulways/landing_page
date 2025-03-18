@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { lazy, Suspense } from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import './assets/styles/custom.css'
@@ -10,6 +10,7 @@ import MainFooter from "./components/MainFooter";
 const Home = lazy(() => import('./pages/Home'));
 const Explore = lazy(() => import('./pages/explore/Explore'));
 const Features = lazy(() => import('./pages/features/Features'));
+const Waitlist = lazy(() => import('./pages/waitlist/Waitlist'));
 const FAQs = lazy(() => import('./pages/faqs/FAQs'));
 const Contact = lazy(() => import('./pages/contact/Contact'));
 const ComingSoon = lazy(() => import('./pages/ComingSoon'));
@@ -18,6 +19,15 @@ const TermsAndConditions = lazy(() => import('./pages/TermsAndConditions'));
 
 gsap.registerPlugin(ScrollTrigger);
 function App() {
+  function ScrollToTop() {
+    const { pathname } = useLocation();
+  
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, [pathname]);
+  
+    return null;
+  }
   // useEffect(() => {
   //   setTimeout(() => {
   //     gsap.set('footer', { yPercent: -50 })
@@ -42,11 +52,13 @@ function App() {
     <section className="haulway-body-section">
       <Navbar />
       <Suspense fallback={<Loader />}>
+        <ScrollToTop />
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/explore' element={<Explore />} />
           <Route path='/features' element={<Features />} />
           <Route path='/faqs' element={<FAQs />} />
+          <Route path='/waitlist' element={<Waitlist />} />
           <Route path='/contact' element={<Contact />} />
           <Route path='/construction' element={<ComingSoon />} />
           <Route path='/privacy/policy' element={<PrivacyPolicy />} />

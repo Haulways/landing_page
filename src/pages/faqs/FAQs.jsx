@@ -41,7 +41,7 @@ const FAQs = () => {
         }
     ];
     return (
-        <section className="xui-lg-py-3 xui-py-1 xui-container">
+        <section className="xui-lg-py-7 xui-py-6 xui-container">
             <div className='xui-text-center'>
                 <h3 className='xui-lg-font-sz-300 xui-font-sz-250 xui-font-w-500'>Frequently <span className='xui-font-w-700'>Asked</span> Questions</h3>
                 <p className='xui-mt-1 xui-lg-font-sz-100 xui-font-sz-90 xui-opacity-8'>Here is a list of frequently asked questions about Haulway app</p>

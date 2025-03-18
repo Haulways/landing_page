@@ -31,7 +31,7 @@ export default function Explore() {
   };
 
   return (
-    <section className="xui-lg-py-3 xui-py-1 xui-container">
+    <section className="xui-lg-py-7 xui-py-6 xui-container">
       <Swiper
         onSwiper={(swiper) => {
           headerSwiperInstance.current = swiper; // Store the swiper instance

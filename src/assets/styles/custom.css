@@ -337,6 +337,9 @@
     outline: none;
     border-radius: .5rem;
 }
+.xui-line-height-6-half{
+    line-height: 6.5rem;
+}
 .xui-line-height-2-half{
     line-height: 4.2rem;
 }
@@ -471,6 +474,7 @@ input {
         font-size: 70%;
         font-weight: 600;
     }
+    .xui-line-height-6-half,
     .xui-line-height-2-half{
         line-height: 2.8rem;
     }

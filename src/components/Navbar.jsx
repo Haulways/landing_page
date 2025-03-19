@@ -13,7 +13,7 @@ const Navbar = () => {
             <div className="links" placed="center">
                 <div className="brand xui-h-fluid-100">
                     <NavLink className="xui-text-dc-none xui-h-fluid-100 xui-text-inherit xui-d-inline-flex xui-flex-ai-center" to={'/'}>
-                        <img className='xui-img-150' src={Logo} alt="" />
+                        <img className='xui-img-100' src={Logo} alt="" />
                         {/* <span className="xui-ml-half xui-d-inline-block xui-font-1 xui-font-w-bold">Kathy</span> */}
                     </NavLink>
                 </div>

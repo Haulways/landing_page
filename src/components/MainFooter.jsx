@@ -183,54 +183,30 @@ const MainFooter = () => {
     // }
     return (
         <>
-        <section className="main-footer xui-lg-py-3 xui-py-1 xui-container">
-            <div className='xui-d-grid xui-lg-grid-col-2 xui-grid-col-1 xui-grid-gap-1'>
-                <div>
-                    <h1 className='haulway-heading-text xui-line-height-2-half xui-lg-font-sz-300 xui-font-sz-180 xui-font-w-500'>
-                        <p>GET STARTED</p> <p>WITH <span className='xui-font-w-700'>HAULWAY</span></p>
-                    </h1>
-                </div>
-                <form onSubmit={handleSubmit(sendEmail)} autoComplete="off" noValidate>
-                    <div className='footer-input-email-holder'>
-                        <div className='xui-d-grid xui-grid-col-2 xui-lg-grid-gap-4 xui-grid-gap-2'>
-                            <div>
-                                <input {...register('firstName', {required: "This field is required"})} type="text" name="firstName" id="firstName" placeholder="First name"/>
-                                {errors.firstName && <span className="xui-badge xui-badge-danger xui-d-block xui-w-fluid-100 xui-bdr-rad-2 xui-lg-font-sz-90 xui-font-sz-80 xui-mt-1">{errors.firstName.message}</span>}
-                            </div>
-                            <div>
-                                <input {...register('lastName', {required: "This field is required"})} type="text" name="lastName" id="lastName" placeholder="Last name"/>
-                                {errors.lastName && <span className="xui-badge xui-badge-danger xui-d-block xui-w-fluid-100 xui-bdr-rad-2 xui-lg-font-sz-90 xui-font-sz-80 xui-mt-1">{errors.lastName.message}</span>}
-                            </div>
-                        </div>
-                        <div>
-                            <input className='xui-mt-1-half' {...register('email', {required: 'Please enter your email', pattern: {value: /^\S+@\S+$/i,message: 'Invalid email address'}})} type="email" name="email" id="email" placeholder="Your email address"/>
-                            {errors.email && <span className="xui-badge xui-badge-danger xui-d-block xui-w-fluid-100 xui-bdr-rad-2 xui-lg-font-sz-90 xui-font-sz-80 xui-mt-1">{errors.email.message}</span>}
-                        </div>
-                        <button type="submit" disabled={isDisabled} className="xui-mt-1-half">{isDisabled ? 'Granting access...' : 'Join Waitlist'}</button>
-                        {/* <div className="footer-input-email-holder main-footer-input xui-mt-1">
-                            
-                            <button type="submit" disabled={isDisabled} className="footer-input-email-btn xui-text-dc-none xui-font-sz-85 xui-mobile-font-sz-65">{isDisabled ? 'Granting access...' : 'Join now'}</button>
-                        </div> */}
-                    </div>
-                </form>
+        <section className="main-footer xui-lg-py-3 xui-py-2 xui-container">
+            <div>
+                <h1 className='haulway-heading-text xui-line-height-6-half xui-lg-font-sz-500 xui-font-sz-180 xui-font-w-500'>
+                    GET STARTED WITH <br /> <span className='xui-font-w-700'>HAULWAY TODAY!</span>
+                </h1>
             </div>
-            <div className='xui-row xui-mt-4'>
-                <div className='xui-lg-col-9 xui-col-12'>
+            <div className='xui-row xui-lg-mt-4 xui-mt-2'>
+                <div className='xui-lg-col-7 xui-col-12 xui-lg-pr-3 xui-pr-none'>
                     <p className='xui-lg-font-sz-100 xui-font-sz-90 xui-font-w-600'>CONTACT US</p>
                     <p className='xui-lg-font-sz-90 xui-font-sz-85 xui-font-w-600 xui-mt-1'><span className='xui-mr-half'>contact@haulway.co</span> / <span className='xui-ml-half'>+44 7441359374</span></p>
                 </div>
-                <div className='xui-lg-col-3 xui-col-12 xui-lg-mt-none xui-mt-4'>
+                <div className='xui-lg-col-5 xui-col-12 xui-lg-pt-none xui-pt-2'>
                     <p className='xui-lg-font-sz-100 xui-font-sz-90 xui-font-w-600'>QUICK LINKS</p>
-                    <p className='xui-lg-font-sz-90 xui-font-sz-85 xui-font-w-600 xui-line-height-1-half xui-mt-1'><Link to='/' className='xui-mr-half xui-text-dc-none xui-text-black'>Home</Link> / <Link to='explore' className='xui-ml-half xui-text-dc-none xui-text-black'>Explore</Link> / <Link to='features' className='xui-ml-half xui-text-dc-none xui-text-black'>Features</Link> / <Link to='privacy/policy' className='xui-ml-half xui-text-dc-none xui-text-black'>Privacy Policy</Link> / <Link to='terms-and-conditions' className='xui-ml-half xui-text-dc-none xui-text-black'>Terms & Conditions</Link></p>
+                    <p className='xui-d-flex xui-flex-ai-center xui-flex-jc-space-between xui-lg-font-sz-90 xui-font-sz-85 xui-font-w-600 xui-line-height-1-half xui-mt-1'><Link to='/' className='xui-text-dc-none xui-text-black'>Home</Link> / <Link to='explore' className='xui-text-dc-none xui-text-black'>Explore</Link> / <Link to='features' className='xui-text-dc-none xui-text-black'>Features</Link> / <Link to='privacy/policy' className='xui-text-dc-none xui-text-black'>Privacy Policy</Link> / <Link to='terms-and-conditions' className='xui-text-dc-none xui-text-black'>Terms & Conditions</Link></p>
                 </div>
             </div>
-            <div className='xui-row xui-mt-4'>
-                <div className='xui-lg-col-9 xui-col-12'>
+            <div className='xui-row xui-flex-ai-flex-end xui-lg-mt-4 xui-mt-2'>
+                <div className='xui-lg-col-7 xui-col-12 xui-lg-pr-3 xui-pr-none'>
                     <p className='xui-lg-font-sz-100 xui-font-sz-90 xui-font-w-600'>INFO</p>
-                    <p className='xui-lg-font-sz-90 xui-font-sz-85 xui-font-w-600 xui-mt-1 xui-line-height-1-half xui-text-dc-underline'>© {new Date().getFullYear()} Haulway. Haulway is a trademark of Haulscape Technologies Ltd. <i>UK-RC:15245660</i>, <br /> a Grascope Industries company.</p>
+                    <p className='xui-lg-w-fluid-90 xui-w-fluid-100 xui-lg-font-sz-90 xui-font-sz-85 xui-font-w-600 xui-mt-1 xui-line-height-1-half'>Haulway is a trademark licensed from Haulscape Technologies Ltd. The platform, its technology, and operations are independently developed and managed by Grascope Industries Ltd. This ensures a seamless experience for our users while maintaining brand continuity under a structured agreement.</p>
+                    {/* <p className='xui-lg-font-sz-90 xui-font-sz-85 xui-font-w-600 xui-mt-1 xui-line-height-1-half xui-text-dc-underline'>© {new Date().getFullYear()} Haulway. Haulway is a trademark of Haulscape Technologies Ltd. <i>UK-RC:15245660</i>, <br /> a Grascope Industries company.</p> */}
                 </div>
-                <div className='xui-lg-col-3 xui-col-12'>
-                    <p className='xui-lg-font-sz-100 xui-font-sz-90 xui-font-w-600 xui-lg-mt-none xui-mt-4'>FOLLOW US</p>
+                <div className='xui-lg-col-5 xui-col-12'>
+                    <p className='xui-lg-font-sz-100 xui-font-sz-90 xui-font-w-600 xui-lg-pt-none xui-pt-2'>FOLLOW US</p>
                     <div className='xui-d-flex xui-flex-ai-center xui-grid-gap-1 xui-mt-1'>
                         <Link to='https://x.com/haulwayglobal'><XIcon /></Link>
                         <Link to='https://www.facebook.com/share/cs331aVbCEYRdMXe/'><FacebookIcon /></Link>
@@ -238,13 +214,23 @@ const MainFooter = () => {
                     </div>
                 </div>
             </div>
-            <div className='xui-mt-4'>
+            <div className='xui-row xui-lg-mt-4 xui-mt-2'>
+                <div className='xui-lg-col-7 xui-col-12 xui-lg-pr-3 xui-pr-none'>
+                    <p className='xui-lg-font-sz-100 xui-font-sz-90 xui-font-w-600'>RC Number</p>
+                    <p className='xui-lg-font-sz-90 xui-font-sz-85 xui-font-w-600 xui-mt-1 xui-line-height-1-half xui-text-dc-underline'>© {new Date().getFullYear()} Haulway. Haulway is a trademark of Haulscape Technologies Ltd. <i>UK-RC:15245660</i>, <br /> a Grascope Industries company.</p>
+                    {/* <p className='xui-lg-font-sz-90 xui-font-sz-85 xui-font-w-600 xui-mt-1 xui-line-height-1-half xui-text-dc-underline'>© {new Date().getFullYear()} Haulway. Haulway is a trademark of Haulscape Technologies Ltd. <i>UK-RC:15245660</i>, <br /> a Grascope Industries company.</p> */}
+                </div>
+                <div className='xui-lg-col-5 xui-col-12 xui-lg-pt-none xui-pt-2'>
+                    <p className=' xui-lg-font-sz-90 xui-font-sz-85 xui-font-w-600 xui-d-inline-flex xui-flex-ai-center xui-grid-gap-half xui-flex-dir-column xui-flex-jc-center '>FROM <Link className='xui-d-inline-block' to='https://www.grascope.com/' target='_blank'><img className='xui-img-70' src={GrascopeLogo} alt="" /></Link></p>
+                </div>
+            </div>
+            {/* <div className='xui-lg-mt-4 xui-mt-2'>
                 <p className='xui-lg-font-sz-100 xui-font-sz-90 xui-font-w-600'>ABOUT US</p>
                 <p className='xui-lg-font-sz-90 xui-font-sz-85 xui-font-w-600 xui-mt-1 xui-opacity-6 xui-line-height-1-half'>Haulway is a trademark licensed from Haulscape Technologies Ltd. The platform, its technology, and operations are independently developed and managed by Grascope Industries Ltd. This ensures a seamless experience for our users while maintaining brand continuity under a structured agreement.</p>
             </div>
-            <div className='xui-text-center xui-p-1-half xui-bdr-rad-2 xui-bg-black xui-text-white xui-mt-4'>
+            <div className='xui-text-center xui-p-1-half xui-bdr-rad-2 xui-bg-black xui-text-white xui-lg-mt-4 xui-mt-2'>
                 <p className='xui-lg-font-sz-100 xui-font-sz-60 xui-font-w-500 xui-d-inline-flex xui-flex-ai-center xui-grid-gap-half'>&copy; {new Date().getFullYear()} Powered by <Link className='xui-d-inline-block' to='https://www.grascope.com/' target='_blank'><img className='xui-img-80' src={GrascopeLogo} alt="" /></Link>- All right reserved</p>
-            </div>
+            </div> */}
         </section>
         <ThankYouModal />
         <ErrorAlert name={`errorAlert`} message={validationErrMsg} />

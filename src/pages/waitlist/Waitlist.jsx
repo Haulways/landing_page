@@ -9,6 +9,7 @@ import SuccessAlert from '../../components/alerts/Success';
 import { API_URL } from "../../../globals.json";
 import Vendor from "../../assets/media/images/vendor.png";
 import Influencer from "../../assets/media/images/influencer.png";
+import { useEffect } from 'react';
 
 const Waitlist = () => {
     const { register, handleSubmit, watch, reset, formState: { errors } } = useForm();
@@ -156,39 +157,44 @@ const Waitlist = () => {
     const typeOfProductsOfferedOptions = ['Clothing', 'Beauty', 'Footwear', 'Jewelry & Accessory', 'Cosmetics', 'Other (please specify)'];
     const biggestChallengesSellingOnlineOptions = ['Driving traffic and generating leads', 'Converting visitors into buyers', 'Managing inventory and fulfillment', 'Standing out in a competitive market', 'Customer retention and support', 'Other (please specify)'];
     const experienceWorkingWithInfluencersOptions = ['No prior experience', 'Limited experience; faced minor communication issues', 'Moderate experience; occasional misalignment', 'Extensive experience; significant negotiation challenges', 'Highly experienced; unresolved complex partnerships.', 'Other (please specify)'];
+    
+    useEffect(() => {
+        window.xuiScrollOnAnimation();
+        window.xuiLazyLoadings();
+    });
 
     return (
         <section className="xui-lg-py-7 xui-py-6 xui-container">
             <div className='xui-text-center'>
-                <h1 className='haulway-heading-text xui-line-height-2-half xui-lg-font-sz-350 xui-font-sz-180 xui-font-w-500 xui-lg-w-fluid-60 xui-w-fluid-100 xui-mx-auto'>Exclusive Early Access to Haulway Starts Here!</h1>
-                <p className='xui-mt-1 xui-lg-font-sz-100 xui-font-sz-90 xui-opacity-8 xui-lg-w-fluid-50 xui-w-fluid-100 xui-mx-auto xui-line-height-1-half'>Join the waitlist and get exclusive early access to Haulway’s all-in-one platform for seamless shopping, vendor collaborations, affiliate marketing, and more. Don’t miss out—secure your spot today!</p>
+                <h1 xui-aos="fade-up" xui-aos-duration=".8" xui-aos-once="true" className='haulway-heading-text xui-line-height-2-half xui-lg-font-sz-350 xui-font-sz-180 xui-font-w-500 xui-lg-w-fluid-60 xui-w-fluid-100 xui-mx-auto'>Exclusive Early Access to Haulway Starts Here!</h1>
+                <p xui-aos="fade-up" xui-aos-duration=".8" xui-aos-delay=".25" xui-aos-once="true" className='xui-mt-1 xui-lg-font-sz-100 xui-font-sz-90 xui-opacity-8 xui-lg-w-fluid-50 xui-w-fluid-100 xui-mx-auto xui-line-height-1-half'>Join the waitlist and get exclusive early access to Haulway’s all-in-one platform for seamless shopping, vendor collaborations, affiliate marketing, and more. Don’t miss out—secure your spot today!</p>
             </div>
             <div className='xui-row xui-mt-3'>
-                <div className='xui-lg-col-6 xui-col-12'>
+                <div xui-aos="fade-left" xui-aos-duration=".8" xui-aos-once="true" className='xui-lg-col-6 xui-col-12'>
                     <div className='xui-d-grid xui-grid-col-2'>
                         <div>
                             <img className='xui-w-fluid-100' src={Vendor} alt="" />
                         </div>
                         <div className='haulway-bg-green xui-bdr-rad-1 xui-d-flex xui-flex-dir-column xui-flex-jc-space-between xui-pt-2 xui-pb-3 xui-px-1'>
-                            <h3 className='xui-font-w-500 xui-font-sz-150'>Vendors</h3>
-                            <p className='xui-font-sz-90'>Haulway is designed to help vendors maximize their sales potential by connecting them with serious buyers and influencers who drive product visibility.</p>
+                            <h3 className='xui-font-w-500 xui-lg-font-sz-150 xui-font-sz-120'>Vendors</h3>
+                            <p className='xui-lg-font-sz-90 xui-font-sz-70'>Haulway is designed to help vendors maximize their sales potential by connecting them with serious buyers and influencers who drive product visibility.</p>
                         </div>
                     </div>
                 </div>
-                <div className='xui-lg-col-6 xui-col-12 xui-lg-pl-half xui-pl-none'>
+                <div xui-aos="fade-right" xui-aos-duration=".8" xui-aos-delay=".25" className='xui-lg-col-6 xui-col-12 xui-lg-pl-half xui-pl-none'>
                     <div className='xui-d-grid xui-grid-col-2'>
                         <div>
                             <img className='xui-w-fluid-100' src={Influencer} alt="" />
                         </div>
                         <div className='haulway-bg-green xui-bdr-rad-1 xui-d-flex xui-flex-dir-column xui-flex-jc-space-between xui-pt-2 xui-pb-3 xui-px-1'>
-                            <h3 className='xui-font-w-500 xui-font-sz-150'>Influencers</h3>
-                            <p className='xui-font-sz-90'>Haulway aims to create a structured and supportive platform for influencers, ensuring they have the resources, opportunities, and fair compensation they need to succeed.</p>
+                            <h3 className='xui-font-w-500 xui-lg-font-sz-150 xui-font-sz-120'>Influencers</h3>
+                            <p className='xui-lg-font-sz-90 xui-font-sz-70'>Haulway aims to create a structured and supportive platform for influencers, ensuring they have the resources, opportunities, and fair compensation they need to succeed.</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div className="waitlist-section xui-py-4">
-                <h1 className='xui-font-sz-450 xui-font-w-600'>Join Waitlist</h1>
+            <div className="waitlist-section xui-pt-4 xui-pb-1">
+                <h1 className='xui-lg-font-sz-450 xui-font-sz-250 xui-font-w-600'>Join Waitlist</h1>
                 <hr className='xui-mt-2 xui-mb-2-half' style={{border: '1px solid #141414'}} />
                 <div className='pagination-indicator-holder xui-d-flex xui-flex-ai-center xui-grid-gap-half'>
                     <div className={`pagination-indicator ${step === 1 ? 'active' : ''}`}></div>

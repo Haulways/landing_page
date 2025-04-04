@@ -3,13 +3,13 @@
     "apps": [],
     "details": [
       {
-        "appIDs": [
-          "2UKN6ZUYDW.com.grascope.haulway"
-        ],
-        "paths": [
-          "*"
-        ]
+        "appID": "2UKN6ZUYDW.com.grascope.haulway",
+        "paths": ["*"]
       }
     ]
+  },
+  "webcredentials": {
+    "apps": ["2UKN6ZUYDW.com.grascope.haulway"]
   }
-}
+} 
+
